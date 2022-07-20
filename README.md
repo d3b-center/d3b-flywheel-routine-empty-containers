@@ -14,3 +14,5 @@ Operation depends on one environment variable:
 | Environment Key | Description |
 |-----------------|-------------|
 | FLYWHEEL_API_TOKEN | Your API token for Flywheel. It looks like `chop.flywheel.io:<random_alphanum>`.<br> D3b has a gsuite service account for this `flywheel@d3b.center`. |
+
+Requires corresponding user to have appropriate Flywheel user privileges.
