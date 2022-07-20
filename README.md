@@ -6,7 +6,7 @@ To run:
 
 ```bash
 pip3 install -r requirements.txt
-python3 fw_add_missing_file_classifications_dataView.py
+python3 fw_delete_empty_containers_DataView.py
 ```
 
 Operation depends on one environment variable:
