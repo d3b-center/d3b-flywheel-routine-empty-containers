@@ -1,6 +1,6 @@
 @Library(value="kids-first/aws-infra-jenkins-shared-libraries", changelog=false) _
 simple_pipeline {
-   cron_schedule = "H 9 * * 1-5"
+   cron_schedule = "H 12 * * 1-5"
    notifyMe = "<@U01FZG0PDGU>"
    stage_name_1 = "Install requirements"
    stage_name_2 = "Copy secrets file from AWS"
