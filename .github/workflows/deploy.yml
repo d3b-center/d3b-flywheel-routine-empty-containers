@@ -19,7 +19,12 @@ jobs:
     runs-on: SOME_GH_RUNNER-linux-large
     steps:
         - name: Checkout code
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
+        - name: Set up Python
+          uses: actions/setup-python@v4
+              with:
+                  python-version: '3.11'
+                  cache: 'pip'        
         - name: Run Pipeline 
           run: |
             pip3 install -r requirements.txt
