@@ -15,8 +15,8 @@ permissions:
 
 jobs:
   build:
-    name: Run Terraform
-    runs-on: SOME_GH_RUNNER-linux-large
+    name: Run Scripts 
+    runs-on: chopd3bPrdHipaa-linux-large
     steps:
         - name: Checkout code
           uses: actions/checkout@v4
