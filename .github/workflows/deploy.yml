@@ -1,0 +1,37 @@
+name: Deployment 
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'main'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  issues: write
+
+jobs:
+  build:
+    name: Run Scripts 
+    runs-on: chopd3bPrd-linux-small
+    env:
+       secrets_path: "s3://d3b-684194535433-us-east-1-service-secrets/d3b-flywheel-routine-empty-containers/app.secrets"
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+        - name: Installing Requirements 
+          run: |
+             sudo yum install -y python3-pip
+             pip3 install -r requirements.txt
+        - name: Copying required files from AWS 
+          run: |
+            aws s3 cp ${{ env.secrets_path }} .
+        - name: Setting permissions, sourcing environment variables
+          run: |
+            chmod +x ./app.secrets && sh ./app.secrets
+        - name: Run main script 
+          run: |
+            python3 fw_delete_empty_containers_DataView.py
