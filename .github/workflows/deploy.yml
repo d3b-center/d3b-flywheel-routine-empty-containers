@@ -16,7 +16,7 @@ permissions:
 jobs:
   build:
     name: Run Scripts 
-    runs-on: chopd3bPrd-linux-small
+    runs-on: chopd3bPrd-linux-large
     env:
        secrets_path: "s3://d3b-684194535433-us-east-1-service-secrets/d3b-flywheel-routine-empty-containers/app.secrets"
     steps:
